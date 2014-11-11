@@ -7,14 +7,14 @@ package controle.de.qualidade;
 
 /**
  *
- * @author davys_000
+ * @author Bruno
  */
-public class LoginCliente extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
     /**
-     * Creates new form Login
+     * Creates new form TelaInicial
      */
-    public LoginCliente() {
+    public Login() {
         initComponents();
     }
 
@@ -28,91 +28,64 @@ public class LoginCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        warningLabel = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        boxCPF = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        btnProsseguir = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        warningLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login Cliente");
-        setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().setLayout(new java.awt.GridLayout(5, 1));
+        setTitle("Sistema de controle de qualidade");
+        getContentPane().setLayout(new java.awt.GridLayout(3, 0));
 
-        jLabel2.setText("Faça seu Login:");
-        jPanel1.add(jLabel2);
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 50));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Faça seu Login:");
+        jPanel1.add(jLabel1);
 
         getContentPane().add(jPanel1);
 
-        jPanel4.setMinimumSize(new java.awt.Dimension(0, 0));
-        jPanel4.setPreferredSize(new java.awt.Dimension(0, 0));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Digite seu cpf:");
+        jPanel2.add(jLabel2);
 
-        warningLabel.setForeground(new java.awt.Color(233, 13, 13));
-        jPanel4.add(warningLabel);
-
-        getContentPane().add(jPanel4);
-
-        jLabel1.setText("CPF:");
-        jPanel2.add(jLabel1);
-
-        boxCPF.setColumns(20);
-        boxCPF.setToolTipText("Digite seu CPF...");
-        boxCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextField1.setColumns(11);
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                boxCPFKeyPressed(evt);
+                jTextField1KeyPressed(evt);
             }
         });
-        jPanel2.add(boxCPF);
+        jPanel2.add(jTextField1);
 
-        getContentPane().add(jPanel2);
-
-        btnProsseguir.setText("Prosseguir");
-        btnProsseguir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnProsseguirMouseClicked(evt);
-            }
-        });
-        btnProsseguir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProsseguirActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnProsseguir);
-
-        getContentPane().add(jPanel3);
-
-        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-
-        jButton1.setText("Voltar");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jButton1.setText("Login");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
         });
-        jPanel5.add(jButton1);
+        jPanel2.add(jButton1);
 
-        getContentPane().add(jPanel5);
+        getContentPane().add(jPanel2);
+
+        warningLabel.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel3.add(warningLabel);
+
+        getContentPane().add(jPanel3);
 
         setSize(new java.awt.Dimension(416, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnProsseguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProsseguirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnProsseguirActionPerformed
-
-    private void btnProsseguirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProsseguirMouseClicked
-        // TODO add your handling code here:
-
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        Cliente c;
         String cpf;
         int tam;
 
-        cpf = boxCPF.getText();
+        cpf = jTextField1.getText();
         tam = cpf.length();
 
         if ((tam != 11 && !cpf.matches("[0-9]+")) || tam == 0) {
@@ -123,23 +96,27 @@ public class LoginCliente extends javax.swing.JFrame {
             warningLabel.setText("<html>CPF Inválido!!! <br />O CPF deve conter apenas números.</html>");
         } else {
             c = new Cliente();
-            c.setCpf(boxCPF.getText());
-            c.setNome("José");
-            c.setEndereco("Buraco Negro, 987");
+            c.setCpf(jTextField1.getText());
+            c.setNome("Zeh");
+            c.setEndereco("Buraco Negro, 42");
 
-            MenuCliente m = new MenuCliente(c);
-            m.setVisible(true);
             setVisible(false);
+            if (cpf.equals("00000000000")) {
+                new MenuFuncionario().setVisible(true);
+            } else {
+                new MenuCliente(c).setVisible(true);
+            }
         }
-    }//GEN-LAST:event_btnProsseguirMouseClicked
+    }//GEN-LAST:event_jButton1MouseClicked
 
-    private void boxCPFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boxCPFKeyPressed
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
 
         if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            Cliente c;
             String cpf;
             int tam;
 
-            cpf = boxCPF.getText();
+            cpf = jTextField1.getText();
             tam = cpf.length();
 
             if ((tam != 11 && !cpf.matches("[0-9]+")) || tam == 0) {
@@ -150,21 +127,19 @@ public class LoginCliente extends javax.swing.JFrame {
                 warningLabel.setText("<html>CPF Inválido!!! <br />O CPF deve conter apenas números.</html>");
             } else {
                 c = new Cliente();
-                c.setCpf(boxCPF.getText());
-                c.setNome("José");
-                c.setEndereco("Buraco Negro, 987");
+                c.setCpf(jTextField1.getText());
+                c.setNome("Zeh");
+                c.setEndereco("Buraco Negro, 42");
 
-                MenuCliente m = new MenuCliente(c);
-                m.setVisible(true);
                 setVisible(false);
+                if (cpf.equals("00000000000")) {
+                    new MenuFuncionario().setVisible(true);
+                } else {
+                    new MenuCliente(c).setVisible(true);
+                }
             }
         }
-    }//GEN-LAST:event_boxCPFKeyPressed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        setVisible(false);
-        new Login().setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_jTextField1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -183,37 +158,34 @@ public class LoginCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new LoginCliente().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField boxCPF;
-    private javax.swing.JButton btnProsseguir;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel warningLabel;
     // End of variables declaration//GEN-END:variables
-    private Cliente c;
 }

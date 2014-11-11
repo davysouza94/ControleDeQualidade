@@ -24,6 +24,7 @@ public class MenuCliente extends javax.swing.JFrame {
         jLabel3.setVisible(false);
         temp = c.getCpf();
         numCPF.setText(temp.substring(0,3)+"."+temp.substring(3,6)+"."+temp.substring(6,9)+"-"+temp.substring(9,11));
+        numCPF1.setText(temp.substring(0,3)+"."+temp.substring(3,6)+"."+temp.substring(6,9)+"-"+temp.substring(9,11));
     }
 
     private MenuCliente() {
@@ -62,6 +63,12 @@ public class MenuCliente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel29 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel30 = new javax.swing.JPanel();
+        jButton9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(1, 1));
@@ -156,6 +163,28 @@ public class MenuCliente extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Visualizar Avaliação", jPanel5);
 
+        jPanel2.setLayout(new java.awt.GridLayout(5, 0));
+        jPanel2.add(jPanel12);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel14.setText("Deseja voltar ao menu inicial?");
+        jPanel29.add(jLabel14);
+
+        jPanel2.add(jPanel29);
+
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton9.setText("Confirmar");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+        jPanel30.add(jButton9);
+
+        jPanel2.add(jPanel30);
+
+        jTabbedPane1.addTab("Sair", jPanel2);
+
         getContentPane().add(jTabbedPane1);
 
         setSize(new java.awt.Dimension(416, 381));
@@ -190,8 +219,7 @@ public class MenuCliente extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
-        Avaliacao m = new Avaliacao();
-        m.setVisible(true);
+        new Avaliacao(c).setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
 
@@ -202,6 +230,11 @@ public class MenuCliente extends javax.swing.JFrame {
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        //setVisible(false);
+        new Login().setVisible(true);
+    }//GEN-LAST:event_jButton9MouseClicked
 
     /**
      * @param args the command line arguments
@@ -243,6 +276,8 @@ public class MenuCliente extends javax.swing.JFrame {
     private javax.swing.JLabel comboLabel1;
     private javax.swing.JLabel cpfLalbel;
     private javax.swing.JLabel cpfLalbel1;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -251,6 +286,10 @@ public class MenuCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel29;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

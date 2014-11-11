@@ -121,11 +121,19 @@ public class MenuFuncionario extends javax.swing.JFrame {
         jPanel42 = new javax.swing.JPanel();
         jPanel43 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
+        jPanel27 = new javax.swing.JPanel();
+        jPanel28 = new javax.swing.JPanel();
+        jPanel29 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel30 = new javax.swing.JPanel();
+        jButton9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridLayout());
+        setTitle("Gerência de Histórico");
+        setAlwaysOnTop(true);
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
-        VisPane.setLayout(new java.awt.GridLayout());
+        VisPane.setLayout(new java.awt.GridLayout(1, 0));
 
         VisGeralPane.setLayout(new java.awt.GridLayout(5, 0));
 
@@ -269,9 +277,9 @@ public class MenuFuncionario extends javax.swing.JFrame {
 
         VisPane.add(jTabbedPane2);
 
-        jTabbedPane1.addTab("Visualizar Histórico", VisPane);
+        jTabbedPane1.addTab("Visualizar", VisPane);
 
-        LimparPane.setLayout(new java.awt.GridLayout());
+        LimparPane.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel1.setLayout(new java.awt.GridLayout(5, 0));
 
@@ -305,11 +313,11 @@ public class MenuFuncionario extends javax.swing.JFrame {
 
         LimparPane.add(jPanel1);
 
-        jTabbedPane1.addTab("Limpar Histórico", LimparPane);
+        jTabbedPane1.addTab("Limpar", LimparPane);
 
-        DadosPane.setLayout(new java.awt.GridLayout());
+        DadosPane.setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel3.setLayout(new java.awt.GridLayout(4, 0));
         jPanel3.add(jPanel44);
@@ -368,11 +376,38 @@ public class MenuFuncionario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Dados estatísticos", DadosPane);
 
+        jPanel27.setLayout(new java.awt.GridLayout(5, 0));
+        jPanel27.add(jPanel28);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel14.setText("Deseja voltar ao menu inicial?");
+        jPanel29.add(jLabel14);
+
+        jPanel27.add(jPanel29);
+
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton9.setText("Confirmar");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+        jPanel30.add(jButton9);
+
+        jPanel27.add(jPanel30);
+
+        jTabbedPane1.addTab("Sair", jPanel27);
+
         getContentPane().add(jTabbedPane1);
 
         setSize(new java.awt.Dimension(416, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        setVisible(false);
+        new Login().setVisible(true);
+    }//GEN-LAST:event_jButton9MouseClicked
 
     /**
      * @param args the command line arguments
@@ -429,11 +464,13 @@ public class MenuFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -461,7 +498,11 @@ public class MenuFuncionario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;

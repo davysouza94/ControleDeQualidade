@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package controle.de.qualidade;
 
 /**
@@ -14,9 +13,18 @@ public class Avaliacao extends javax.swing.JFrame {
 
     /**
      * Creates new form Avaliacao
+     * @param ctemp
      */
-    public Avaliacao() {
+    public Avaliacao(Cliente ctemp) {
+        c = ctemp;
         initComponents();
+        //jTextArea2.setLineWrap(true);
+        jTextArea2.setEditable(false);
+        //jTextArea3.setLineWrap(true);
+    }
+
+    private Avaliacao() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -29,55 +37,62 @@ public class Avaliacao extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup2 = new javax.swing.ButtonGroup();
+        jDialog1 = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
         jLabel4 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
         jPanel6 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridLayout(8, 1));
+        getContentPane().setLayout(new java.awt.GridLayout(6, 1));
 
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 35));
+
+        labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         labelTitulo.setText("Avaliacao de Oficina");
         jPanel1.add(labelTitulo);
 
         getContentPane().add(jPanel1);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Descrição"));
-        jPanel2.setName("Descrição"); // NOI18N
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Descrição"));
 
-        jLabel3.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum");
-        jLabel3.setMaximumSize(new java.awt.Dimension(100, 50));
-        jLabel3.setMinimumSize(new java.awt.Dimension(100, 50));
-        jLabel3.setPreferredSize(new java.awt.Dimension(300, 50));
-        jPanel2.add(jLabel3);
+        jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setText(" want to JLabel to vertically, but not horizontally. ... I've tried setting the JScrollPane to use only a vertical scroll bar, setting the JLabel's maximum size, ... You would still need to tell the HTML to break (<br /> or <p /> or whatever). ... if the width of the container is too narrow to display all the text on one line. 2. want to JLabel to vertically, but not horizontally. ... I've tried setting the JScrollPane to use only a vertical scroll bar, setting the JLabel's maximum size, ... You would still need to tell the HTML to break (<br /> or <p /> or whatever). ... if the width of the container is too narrow to display all the text on one line. 2. want to JLabel to vertically, but not horizontally. ... I've tried setting the JScrollPane to use only a vertical scroll bar, setting the JLabel's maximum size, ... You would still need to tell the HTML to break (<br /> or <p /> or whatever). ... if the width of the container is too narrow to display all the text on one line. 2.");
+        jTextArea2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(jTextArea2);
 
-        getContentPane().add(jPanel2);
-        jPanel2.getAccessibleContext().setAccessibleName("");
+        getContentPane().add(jScrollPane1);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tempo"));
+        jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
-        jLabel2.setText("2 dias");
-        jPanel3.add(jLabel2);
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Tempo"));
 
-        getContentPane().add(jPanel3);
+        jLabel3.setText("2 dias");
+        jPanel8.add(jLabel3);
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Seu problema foi resolvido?"));
+        jPanel3.add(jPanel8);
+
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Problema Resolvido?"));
 
         buttonGroup2.add(jRadioButton1);
         jRadioButton1.setText("Sim");
@@ -86,11 +101,11 @@ public class Avaliacao extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
-        jPanel7.add(jRadioButton1);
+        jPanel9.add(jRadioButton1);
 
         buttonGroup2.add(jRadioButton2);
         jRadioButton2.setText("Parcialmente");
-        jPanel7.add(jRadioButton2);
+        jPanel9.add(jRadioButton2);
 
         buttonGroup2.add(jRadioButton3);
         jRadioButton3.setText("Não");
@@ -99,14 +114,17 @@ public class Avaliacao extends javax.swing.JFrame {
                 jRadioButton3ActionPerformed(evt);
             }
         });
-        jPanel7.add(jRadioButton3);
+        jPanel9.add(jRadioButton3);
 
-        getContentPane().add(jPanel7);
+        jPanel3.add(jPanel9);
+
+        getContentPane().add(jPanel3);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Nota"));
+        jPanel4.setLayout(new java.awt.GridLayout(2, 0));
 
         jLabel1.setText("0");
-        jPanel4.add(jLabel1);
+        jPanel2.add(jLabel1);
 
         jSlider1.setPaintLabels(true);
         jSlider1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -114,37 +132,50 @@ public class Avaliacao extends javax.swing.JFrame {
                 jSlider1MouseDragged(evt);
             }
         });
-        jPanel4.add(jSlider1);
+        jSlider1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jSlider1KeyPressed(evt);
+            }
+        });
+        jPanel2.add(jSlider1);
 
         jLabel4.setText("10");
-        jPanel4.add(jLabel4);
+        jPanel2.add(jLabel4);
+
+        jPanel4.add(jPanel2);
+
+        jLabel5.setText("5.0");
+        jPanel5.add(jLabel5);
+
+        jPanel4.add(jPanel5);
 
         getContentPane().add(jPanel4);
 
-        jLabel5.setText("5.0");
-        jPanel8.add(jLabel5);
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder("Descrição"));
 
-        getContentPane().add(jPanel8);
+        jTextArea3.setColumns(20);
+        jTextArea3.setLineWrap(true);
+        jTextArea3.setRows(5);
+        jScrollPane2.setViewportView(jTextArea3);
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Sugestões"));
-
-        jTextField1.setColumns(35);
-        jTextField1.setPreferredSize(new java.awt.Dimension(286, 50));
-        jPanel5.add(jTextField1);
-
-        getContentPane().add(jPanel5);
+        getContentPane().add(jScrollPane2);
 
         jButton1.setText("Enviar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jPanel6.add(jButton1);
 
         getContentPane().add(jPanel6);
 
-        setSize(new java.awt.Dimension(416, 703));
+        setSize(new java.awt.Dimension(416, 694));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jSlider1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseDragged
-        nota = (float) jSlider1.getValue()/10;
+        nota = (float) jSlider1.getValue() / 10;
         jLabel5.setText(String.valueOf(nota));
     }//GEN-LAST:event_jSlider1MouseDragged
 
@@ -155,6 +186,16 @@ public class Avaliacao extends javax.swing.JFrame {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jSlider1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jSlider1KeyPressed
+        nota = (float) jSlider1.getValue() / 10;
+        jLabel5.setText(String.valueOf(nota));
+    }//GEN-LAST:event_jSlider1KeyPressed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        new AvSucesso(c).setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -185,6 +226,7 @@ public class Avaliacao extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Avaliacao().setVisible(true);
             }
@@ -194,8 +236,8 @@ public class Avaliacao extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -205,14 +247,18 @@ public class Avaliacao extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSlider jSlider1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JLabel labelTitulo;
     // End of variables declaration//GEN-END:variables
     private float nota;
+    private Cliente c;
 }
